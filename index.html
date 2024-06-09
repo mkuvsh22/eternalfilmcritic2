@@ -27,22 +27,36 @@
             z-index: 1; /* Поднимаем текст над видео */
         }
         .overlay a {
-            color: black; /* Цвет ссылки до перехода */
+            color: #e90a1c; /* Цвет ссылки до перехода */
             text-decoration: none; /* Убираем подчеркивание */
+            font-weight: bold;
         }
         .overlay a:hover {
-            color: black; /* Цвет ссылки при наведении */
+            color: #e90a1c; /* Цвет ссылки при наведении */
         }
         .overlay a:active {
             color: rgb(243, 245, 245); /* Цвет ссылки при нажатии */
         }
+        .sound-button {
+            position: absolute;
+            top: 30px;
+            left: 99%;
+            transform: translateX(-75%);
+            padding: 10px 30px;
+            background-color: #e90a1c;
+            color: rgb(26, 24, 24);
+            border: none;
+            cursor: pointer;
+            font-size: 30px;
+        }
     </style>
 </head>
 <body>
-    <video autoplay loop muted>
-        <source src="armavir2.mov" type="video/mp4">
+    <video id="video" autoplay loop muted>
+        <source src="armavir3.mov" type="video/mp4">
         Your browser does not support the video tag.
     </video>
+    <button class="sound-button" onclick="document.getElementById('video').muted = false;">&#x1F39D;</button>
     <div class="overlay">
         <a href="http://192.168.0.11:8501" target="_blank">Получить рецензию</a>
     </div>
