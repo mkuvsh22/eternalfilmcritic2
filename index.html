@@ -38,16 +38,50 @@
         .overlay a:active {
             color: rgb(243, 245, 245);
         }
+        .sound-button {
+            position: absolute;
+            top: 30px;
+            left: 99%;
+            transform: translateX(-75%);
+            padding: 10px 30px;
+            background-color: #e90a1c;
+            color: rgb(26, 24, 24);
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+        }
+        .sound-button i {
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>
-    <video id="video" autoplay loop>
+    <video id="video" autoplay loop muted>
         <source src="armavir6.mov" type="video/mp4">
         Your browser does not support the video tag.
     </video>
+    <button class="sound-button" id="soundButton" onclick="toggleSound()">
+        <i class="fa-solid fa-music"></i>
+    </button>
     <div class="overlay">
         <a href="https://eternalfilmcritic.streamlit.app/">Получить рецензию</a>
     </div>
+    <script>
+        function toggleSound() {
+            var video = document.getElementById('video');
+            var button = document.getElementById('soundButton');
+            var icon = button.querySelector('i');
+            if (video.muted) {
+                video.muted = false;
+                icon.classList.remove('fa-music');
+                icon.classList.add('fa-volume-mute');
+            } else {
+                video.muted = true;
+                icon.classList.remove('fa-volume-mute');
+                icon.classList.add('fa-music');
+            }
+        }
+    </script>
 </body>
 </html>
 
